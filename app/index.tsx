@@ -1,18 +1,24 @@
+import Login from "@/components/Login";
 import { useState } from "react";
-import { Button, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TextInput, View } from "react-native";
 
 export default function HomeScreen() {
-  const [count, setCount] = useState(0)
-  const [show, setShow] = useState(true)
+  const [name, setName] = useState("");
+
   return (
     <View style={styles.container}>
-      {show && <Text>Welcome Prateek</Text>}
-      <Text style={styles.title}>Counter App</Text>
-      <Text style={styles.count}>{count}</Text>
-      <Button title="Increase" onPress={() => setCount(count + 1)}></Button>
-      <View style={{ height: 10 }}></View>
-      <Button title="Descrease" onPress={() => setCount(count - 1)}></Button>
-      <Button title={show ? "Hide Text" : "Show Text"} onPress={() => setShow(!show)} />
+      <Login />
+
+      <Text style={styles.title}>Enter Your Name</Text>
+
+      <TextInput
+        style={styles.input}
+        placeholder="Name"
+        value={name}
+        onChangeText={(text) => setName(text)}
+      />
+
+      <Text style={styles.output}>Hello {name}</Text>
     </View>
   );
 }
@@ -22,14 +28,22 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    padding: 20,
   },
   title: {
-    fontSize: 24,
-    marginBottom: 20,
+    fontSize: 20,
+    marginBottom: 10,
   },
-  count: {
-    fontSize: 40,
-    fontWeight: "bold",
-    marginBottom: 20,
+  input: {
+    width: "90%",
+    borderWidth: 1,
+    borderColor: "#ccc",
+    padding: 10,
+    borderRadius: 8,
+    marginBottom: 10,
+  },
+  output: {
+    fontSize: 18,
+    marginTop: 10,
   },
 });

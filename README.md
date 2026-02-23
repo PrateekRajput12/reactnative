@@ -11,3 +11,10 @@
 - Login Form 
 - useState 
 - keyPress 
+
+
+# Day 4
+- FlatList
+- its like map
+- created list then renderedd 
+- and in this we can stle in renderItem
